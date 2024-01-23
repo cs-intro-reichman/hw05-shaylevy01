@@ -72,7 +72,7 @@ public class GameOfLife {
 			col = 1;
 			if (st != "") {
 				for (int j = 1 ; j <= st.length() ; j++){
-					if (st.charAt(j) == 'x'){
+					if (st.charAt(j - 1) == 'x'){
 						board[row][col] = 1; 
 					}
 					col++;
