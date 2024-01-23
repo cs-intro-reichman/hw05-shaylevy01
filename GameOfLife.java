@@ -11,7 +11,7 @@ public class GameOfLife {
 		String fileName = args[0];
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		//// test1(fileName);
+		test1(fileName);
 		//// test2(fileName);
 		//// test3(fileName, 3);
 		//// play(fileName);
@@ -20,7 +20,7 @@ public class GameOfLife {
 	// Reads the data file and prints the initial board.
 	private static void test1(String fileName) {
 		int[][] board = read(fileName);
-		print(board);
+		// print(board);
 	}
 		
 	// Reads the data file, and runs a test that checks 
@@ -66,14 +66,21 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		for (int i = 1 ; i <= rows ; i++){
+		int col = 1, row = 1;
+		while ( !in.isEmpty() ) {
 			String st = in.readLine();
-			for (int j = 1 ; j <= st.length() ; j++){
-				if (st.charAt(j-1) == 'x'){
-					board[i][j] = 1; 
+			col = 1;
+			if (st != "") {
+				for (int j = 1 ; j <= st.length() ; j++){
+					if (st.charAt(j) == 'x'){
+						board[row][col] = 1; 
+					}
+					col++;
 				}
+				row++;
 			}
 		}
+
 		return board;
 	}
 	
@@ -155,7 +162,7 @@ public class GameOfLife {
     public static void print(int[][] arr) {
 		for (int i = 1 ; i < arr.length-1 ; i++){
 			for (int j = 1 ; j < arr.length-1 ; j++){
-				System.out.printf(" %2s", arr[i][j]);
+				System.out.printf("%3s", arr[i][j]);
 			}
 			System.out.println();
 		}
