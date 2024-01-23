@@ -80,7 +80,6 @@ public class GameOfLife {
 				row++;
 			}
 		}
-
 		return board;
 	}
 	
