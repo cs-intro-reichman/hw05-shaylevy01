@@ -66,22 +66,31 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		int col = 1, row = 1;
-		int count = 0;
-		while ( !in.isEmpty() ) {
-			String st = in.readLine();
-			col = 1;
-			if (st != "") {
-				for (int j = 0 ; j < st.length() ; j++){
-					if (st.charAt(j) == 'x'){
-						board[row][col] = 1; 
-					}
-					count++;
-					col++;
+		String st = "";
+		for (int i=1 ; i<=rows ; i++){
+			st = in.readLine();
+			for (int j=1 ; j<=st.length() ; j++){
+				if (st.charAt(j-1) == 'x'){
+					board[i][j] = 1;
 				}
 			}
-			row++;
 		}
+		// int col = 1, row = 1;
+		// int count = 0;
+		// while ( !in.isEmpty() ) {
+		// 	String st = in.readLine();
+		// 	col = 1;
+		// 	if (st != "") {
+		// 		for (int j = 0 ; j < st.length() ; j++){
+		// 			if (st.charAt(j) == 'x'){
+		// 				board[row][col] = 1; 
+		// 			}
+		// 			count++;
+		// 			col++;
+		// 		}
+		// 	}
+		// 	row++;
+		// }
 		return board;
 	}
 	
