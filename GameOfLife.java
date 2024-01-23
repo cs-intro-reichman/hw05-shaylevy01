@@ -89,9 +89,9 @@ public class GameOfLife {
 	// Uses the cellValue(board,i,j) function to compute the value of each 
 	// cell in the new board. Returns the new board.
 	public static int[][] evolve(int[][] board) {
-		int [][] newBoard = new int[board.length][board.length];
+		int [][] newBoard = new int[board.length][board[0].length];
 		for (int i = 1 ; i < board.length-1 ; i++){
-			for (int j = 1 ; j < board.length-1 ; j++){
+			for (int j = 1 ; j < board[0].length-1 ; j++){
 				newBoard[i][j] = cellValue(board, i, j);
 			}
 		}
@@ -162,7 +162,7 @@ public class GameOfLife {
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
 		for (int i = 1 ; i < arr.length-1 ; i++){
-			for (int j = 1 ; j < arr.length-1 ; j++){
+			for (int j = 1 ; j < arr[0].length-1 ; j++){
 				System.out.printf("%3s", arr[i][j]);
 			}
 			System.out.println();
